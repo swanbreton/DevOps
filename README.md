@@ -21,6 +21,13 @@ TP1 :
     docker run -d -p 8080:80 --name TP1 nginx
     docker cp ./html/index.html mon-nginx:/usr/share/nginx/html/index.html
 
+  4.a :
+    Dockerfile : 
+    FROM nginx:latest
+
+    COPY ./html/index.html /usr/share/nginx/html/index.html
+
+
 
     
     
