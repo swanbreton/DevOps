@@ -61,6 +61,51 @@ TP1 :
         -p 8080:80 \
         phpmyadmin/phpmyadmin
 
+    6.a :
+    docker run = lancer un seul conteneur
+    docker commpose = lancer plusieurs coneteneurs 
+
+      .b :
+      Commande qui permet de lancer tout les containers du fichier yami = docker-compose up
+      Commande qui permet de stopper tout les containers = docker-compose down
+
+      .c :
+        version: '3.8'
+      
+      services:
+        db:
+          image: mysql
+          container_name: mysql-container
+          environment:
+            MYSQL_ROOT_PASSWORD: rootpass
+            MYSQL_DATABASE: ma_base
+            MYSQL_USER: utilisateur
+            MYSQL_PASSWORD: motdepasse
+          ports:
+            - "3306:3306"
+          networks:
+            - mynet
+      
+        phpmyadmin:
+          image: phpmyadmin/phpmyadmin
+          container_name: phpmyadmin-container
+          environment:
+            PMA_HOST: db
+            PMA_USER: users
+            PMA_PASSWORD: password
+          ports:
+            - "8080:80"
+          depends_on:
+            - db
+          networks:
+            - mynet
+      
+      networks:
+        mynet:
+
+      
+  
+
 
 
       
