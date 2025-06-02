@@ -27,6 +27,13 @@ TP1 :
 
     COPY ./html/index.html /usr/share/nginx/html/index.html
 
+    .b :
+    docker build -t TPImage .
+
+    docker run -d -p 8080:80 TPImage
+
+    .c : 
+    Le mount volume est plus compliqué à mettre en place que le COPY, mais le mount volume permet de ne pas rebuild l'image à chaque modification
 
 
     
