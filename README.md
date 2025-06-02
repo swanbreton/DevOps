@@ -6,4 +6,11 @@ TP1 :
     .b :
     docker images
 
+    .c : 
+    mkdir -p html
+    echo "Hello World" > html/index.html
+
+    .d : 
+
+
   
